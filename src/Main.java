@@ -12,9 +12,7 @@ public class Main {
         while(currentView != null) {
             currentView.display();
             int option = scanner.nextInt();
-            if( option == 0) {
-                currentView = null;
-            }
+            currentView = currentView.controller.execute(option);
         }
 
 

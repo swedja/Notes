@@ -4,6 +4,8 @@ import java.util.List;
 
 public class NotesView {
 
+    public NotesController controller = new NotesController();
+
     public void display() {
 
         System.out.println("Current notes");
