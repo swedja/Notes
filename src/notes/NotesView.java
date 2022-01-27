@@ -4,12 +4,15 @@ import java.util.List;
 
 public class NotesView {
 
-    public NotesController controller = new NotesController();
+    private NotesController controller = new NotesController();
+    public NotesController getController(){
+        return this.controller;
+    }
 
     public void display() {
 
         System.out.println("Current notes");
-        List<String> entities = NotesRepo.instance.getEntities();
+        List<Notes> entities = NotesRepo.getInstance().getAll();
         for (int i = 0; i < entities.size(); i++){
             System.out.println(entities.get(i));
         }

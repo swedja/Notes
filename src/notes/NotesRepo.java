@@ -7,11 +7,14 @@ import java.util.List ;
 
 public class NotesRepo {
 
-    public static NotesRepo instance = new NotesRepo()  ;
+    private static NotesRepo instance = new NotesRepo()  ;
     private NotesRepo() {}
+    public static NotesRepo getInstance(){
+        return instance;
+    }
 
     private static final String path = "C:\\Users\\doosh\\Desktop\\Nesto.txt";
-    private List<String> entities = new ArrayList<String>();
+    private List<Notes> entities = new ArrayList<Notes>();
     private void load() {
         File file = new File(path);
 
@@ -24,12 +27,10 @@ public class NotesRepo {
         }
 
         while(scan.hasNextLine()){
-            entities.add(scan.nextLine());
-
-
+            entities.add(new Notes(scan.nextLine()));
         }
     }
-    public List<String> getEntities() {
+    public List<Notes> getAll() {
         if (entities.isEmpty()) {
             load();
         }
