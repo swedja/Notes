@@ -12,12 +12,13 @@ public class NotesView {
     public void display() {
 
         System.out.println("Current notes");
-        List<Notes> entities = NotesRepo.getInstance().getAll();
+        List<Note> entities = NotesRepo.getInstance().getAll();
         for (int i = 0; i < entities.size(); i++){
             System.out.println(entities.get(i));
         }
         System.out.println("===============================");
         System.out.println("Options: ");
+        System.out.println("1. Create [1/content]");
         System.out.println("0. Exit ");
 
     }

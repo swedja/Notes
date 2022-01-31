@@ -11,8 +11,9 @@ public class Main {
         NotesView currentView = new NotesView();
         while(currentView != null) {
             currentView.display();
-            int option = scanner.nextInt();
-            currentView = currentView.getController().execute(option);
+            String userInput = scanner.nextLine();
+            String[] parameters = userInput.split("/");
+            currentView = currentView.getController().execute(parameters);
         }
 
 

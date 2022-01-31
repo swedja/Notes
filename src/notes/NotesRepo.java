@@ -12,9 +12,12 @@ public class NotesRepo {
     public static NotesRepo getInstance(){
         return instance;
     }
+    public void create(String content){
+        this.entities.add(new Note(content));
+    }
 
     private static final String path = "C:\\Users\\doosh\\Desktop\\Nesto.txt";
-    private List<Notes> entities = new ArrayList<Notes>();
+    private List<Note> entities = new ArrayList<Note>();
     private void load() {
         File file = new File(path);
 
@@ -27,10 +30,10 @@ public class NotesRepo {
         }
 
         while(scan.hasNextLine()){
-            entities.add(new Notes(scan.nextLine()));
+            entities.add(new Note(scan.nextLine()));
         }
     }
-    public List<Notes> getAll() {
+    public List<Note> getAll() {
         if (entities.isEmpty()) {
             load();
         }
