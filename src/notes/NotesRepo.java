@@ -12,8 +12,8 @@ public class NotesRepo {
     public static NotesRepo getInstance(){
         return instance;
     }
-    public void create(String content){
-        this.entities.add(new Note(content));
+    public void create(Note note){
+        this.entities.add(note);
     }
 
     private static final String path = "C:\\Users\\doosh\\Desktop\\Nesto.txt";
@@ -39,6 +39,9 @@ public class NotesRepo {
         }
         return entities;
 
+    }
+    public Note get(int position) {
+        return entities.get(position);
     }
 
 

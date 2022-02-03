@@ -1,5 +1,5 @@
 import notes.NotesView;
-
+import notes.View;
 import java.util.Scanner;
 
 public class Main {
@@ -8,7 +8,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        NotesView currentView = new NotesView();
+        View currentView = new NotesView();
         while(currentView != null) {
             currentView.display();
             String userInput = scanner.nextLine();
