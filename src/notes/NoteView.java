@@ -14,6 +14,8 @@ public class NoteView extends View{
         System.out.println(this.note.getContent());
         System.out.println("====================");
         System.out.println("Options: ");
+        System.out.println("1: Edit [1/new content]");
+        System.out.println("2: Delete [2]");
         System.out.println("0: Return");
     }
 

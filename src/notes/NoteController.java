@@ -15,6 +15,15 @@ public class NoteController extends Controller{
         if(option == 0) {
             nextView = new NotesView();
         }
+        else if (option == 1) {
+            this.note.setContent(parameters[1]);
+            NotesRepo.getInstance().update(this.position, this.note);
+            nextView = new NoteView(this.position);
+        }
+        else if (option == 2) {
+            NotesRepo.getInstance().delete(this.position);
+            nextView = new NotesView();
+        }
         else {
             System.out.println("The selected option doesn't exist");
             nextView = new NoteView(this.position);

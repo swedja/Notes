@@ -1,6 +1,8 @@
 package notes;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import  java.util.Scanner;
 import java.util.List ;
@@ -14,6 +16,29 @@ public class NotesRepo {
     }
     public void create(Note note){
         this.entities.add(note);
+        this.save();
+    }
+    public void save(){
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(path);
+            for (int i = 0; i < this.entities.size(); i++) {
+                fw.write(this.entities.get(i).toString() + "\n");
+            }
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void update(int position, Note note){
+        this.entities.set(position, note);
+        this.save();
+    }
+
+    public void delete(int position){
+        this.entities.remove(position);
+        this.save();
+
     }
 
     private static final String path = "C:\\Users\\doosh\\Desktop\\Nesto.txt";
@@ -43,7 +68,6 @@ public class NotesRepo {
     public Note get(int position) {
         return entities.get(position);
     }
-
 
 
 }

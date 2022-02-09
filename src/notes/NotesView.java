@@ -9,7 +9,7 @@ public class NotesView extends View {
     }
     public void display() {
 
-        System.out.println("Current notes");
+        System.out.println("Current notes: ");
         List<Note> entities = NotesRepo.getInstance().getAll();
         for (int i = 0; i < entities.size(); i++){
             System.out.println(Integer.toString(i) + ". " + entities.get(i));
